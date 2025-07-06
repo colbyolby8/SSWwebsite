@@ -1,0 +1,181 @@
+/* Monkey Shoes Styles */
+:root {
+  --primary: #ffb703;
+  --secondary: #335c67;
+  --text: #082032;
+  --light: #f7f7f7;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  color: var(--text);
+  line-height: 1.6;
+  background: white;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Header */
+header {
+  background: var(--secondary);
+  color: #fff;
+  padding: 1rem 0;
+}
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.logo {
+  font-size: 1.7rem;
+  font-weight: 600;
+}
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 400;
+  transition: opacity 0.2s;
+}
+.nav-links a:hover {
+  opacity: 0.75;
+}
+
+/* Hero */
+.hero {
+  background: url('https://placehold.co/1200x600') center/cover no-repeat;
+  color: #fff;
+  text-align: center;
+  padding: 6rem 0;
+}
+.hero h2 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+.hero p {
+  font-size: 1.125rem;
+  margin-bottom: 1.5rem;
+}
+.btn-primary {
+  display: inline-block;
+  background: var(--primary);
+  color: #000;
+  padding: 0.75rem 2rem;
+  border: none;
+  border-radius: 50px;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+.btn-primary:hover {
+  background: #f4a261;
+}
+
+/* Sections */
+.section-title {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+/* Products */
+.products {
+  padding: 4rem 0;
+}
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+.product-card {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  padding: 1rem;
+}
+.product-card img {
+  max-width: 100%;
+  border-radius: 8px;
+}
+.product-card h3 {
+  margin: 0.75rem 0 0.25rem;
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+.price {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+.btn-secondary {
+  background: var(--secondary);
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1.5rem;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+.btn-secondary:hover {
+  opacity: 0.85;
+}
+
+/* About & Contact */
+.about,
+.contact {
+  background: var(--light);
+  padding: 4rem 0;
+}
+
+/* Contact Form */
+form {
+  max-width: 600px;
+  margin: 0 auto;
+}
+.form-group {
+  margin-bottom: 1rem;
+}
+form label {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-weight: 500;
+}
+form input,
+form textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 1rem;
+}
+form textarea {
+  resize: vertical;
+}
+
+/* Footer */
+footer {
+  background: #f2f2f2;
+  padding: 1rem 0;
+  text-align: center;
+  font-size: 0.875rem;
+  color: #555;
+}
