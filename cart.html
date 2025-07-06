@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Cart – Monkey Shoes</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Header (reused) -->
+  <header>
+    <div class="container header-content">
+      <h1 class="logo"><a href="index.html" style="color:inherit;text-decoration:none;">Monkey Shoes</a></h1>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html#products">Products</a></li>
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+          <li><a href="cart.html">Cart (<span id="cart-count">0</span>)</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Cart Section -->
+  <section class="cart-section">
+    <div class="container">
+      <h2 class="section-title">Your Cart</h2>
+      <table class="cart-table">
+        <thead>
+          <tr>
+            <th>Item</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id="cart-items"></tbody>
+      </table>
+      <div class="cart-summary">
+        <p>Total: <span id="cart-total">$0.00</span></p>
+        <button id="checkout-btn" class="btn-primary">Proceed to Checkout</button>
+        <a href="index.html#products" class="btn-secondary" style="margin-left:1rem;display:inline-block;">Continue Shopping</a>
+      </div>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
