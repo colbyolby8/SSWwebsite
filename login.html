@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login – Monkey Shoes</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <div class="container header-content">
+      <h1 class="logo"><a href="index.html" style="color:inherit;text-decoration:none;">Monkey Shoes</a></h1>
+    </div>
+  </header>
+  <section class="auth-section">
+    <div class="container">
+      <h2 class="section-title">Login</h2>
+      <form id="login-form" class="auth-form">
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" required>
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" required>
+        </div>
+        <button type="submit" class="btn-primary">Login</button>
+        <p style="margin-top:1rem;">No account? <a href="#" id="show-register">Register here</a></p>
+      </form>
+
+      <!-- Register form (hidden) -->
+      <form id="register-form" class="auth-form" style="display:none;">
+        <h3 style="margin-bottom:1rem;">Register</h3>
+        <div class="form-group">
+          <label for="reg-name">Name</label>
+          <input type="text" id="reg-name" required>
+        </div>
+        <div class="form-group">
+          <label for="reg-email">Email</label>
+          <input type="email" id="reg-email" required>
+        </div>
+        <div class="form-group">
+          <label for="reg-password">Password</label>
+          <input type="password" id="reg-password" required>
+        </div>
+        <button type="submit" class="btn-primary">Create Account</button>
+        <p style="margin-top:1rem;">Already have an account? <a href="#" id="show-login">Login here</a></p>
+      </form>
+    </div>
+  </section>
+  <script>
+    const API_URL = '/api';
+
+    function saveToken(token) {
+      localStorage.setItem('token', token);
+    }
+
+    document.getElementById('show-register').addEventListener('click', e => {
+      e.preventDefault();
+      document.getElementById('login-form').style.display = 'none';
+      document.getElementById('register-form').style.display = 'block';
+    });
+    document.getElementById('show-login').addEventListener('click', e => {
+      e.preventDefault();
+      document.getElementById('register-form').style.display = 'none';
+      document.getElementById('login-form').style.display = 'block';
+    });
+
+    document.getElementById('login-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+      try {
+        const res = await fetch(`${API_URL}/auth/login`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, password })
+        });
+        const data = await res.json();
+        if (res.ok) {
+          saveToken(data.token);
+          window.location.href = 'index.html';
+        } else {
+          alert(data.error || 'Login failed');
+        }
+      } catch (err) {
+        alert('Network error');
+      }
+    });
+
+    document.getElementById('register-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const name = document.getElementById('reg-name').value;
+      const email = document.getElementById('reg-email').value;
+      const password = document.getElementById('reg-password').value;
+      try {
+        const res = await fetch(`${API_URL}/auth/register`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name, email, password })
+        });
+        const data = await res.json();
+        if (res.ok) {
+          saveToken(data.token);
+          window.location.href = 'index.html';
+        } else {
+          alert(data.error || 'Registration failed');
+        }
+      } catch (err) {
+        alert('Network error');
+      }
+    });
+  </script>
+</body>
+</html>

@@ -10,3 +10,4 @@ Thumbs.db
 
 # Build artifacts
 /dist
+server/database.sqlite
